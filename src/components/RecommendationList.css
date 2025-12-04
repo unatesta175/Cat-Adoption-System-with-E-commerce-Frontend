@@ -1,0 +1,79 @@
+.recommendation-list {
+  margin: 40px 0;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.recommendation-item {
+  position: relative;
+}
+
+.compatibility-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 800;
+  font-size: 14px;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compatibility-badge i {
+  color: #ff6b00;
+  animation: starPulse 2s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.no-recommendations {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-recommendations i {
+  font-size: 80px;
+  color: var(--purple-light);
+  margin-bottom: 20px;
+}
+
+.no-recommendations h3 {
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.no-recommendations p {
+  color: var(--text-light);
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .recommendation-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .compatibility-badge {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+}
+
+
+
+

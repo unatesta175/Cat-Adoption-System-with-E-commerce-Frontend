@@ -1,0 +1,144 @@
+.pet-card {
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(155, 93, 229, 0.2);
+}
+
+.pet-card-image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.pet-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pet-card:hover .pet-card-image img {
+  transform: scale(1.05);
+}
+
+.pet-card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary-purple);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pet-card-badge i {
+  margin-right: 5px;
+}
+
+.pet-card-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-card-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.pet-card-breed {
+  color: var(--primary-purple);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.pet-card-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.pet-card-info span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pet-card-info i {
+  color: var(--primary-purple);
+}
+
+.pet-card-description {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.pet-card-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.trait {
+  background: var(--purple-pale);
+  color: var(--purple-dark);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.trait i {
+  margin-right: 5px;
+}
+
+.trait-highlight {
+  background: var(--primary-purple);
+  color: white;
+}
+
+.btn-block {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .pet-card-image {
+    height: 200px;
+  }
+
+  .pet-card-content {
+    padding: 20px;
+  }
+
+  .pet-card-name {
+    font-size: 20px;
+  }
+}
+
+
+
+

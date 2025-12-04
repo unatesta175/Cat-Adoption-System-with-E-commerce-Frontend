@@ -1,0 +1,152 @@
+.home-page {
+  min-height: calc(100vh - 60px);
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.features-section {
+  background: white;
+}
+
+.features-grid {
+  margin-top: 40px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--purple-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.cta-section {
+  background: var(--purple-pale);
+}
+
+.cta-card {
+  padding: 60px 40px;
+  background: white;
+}
+
+.cta-card h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-purple);
+  margin-bottom: 15px;
+}
+
+.cta-card p {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.shop-promo-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.shop-promo-card {
+  padding: 60px 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shop-promo-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.shop-promo-icon i {
+  font-size: 50px;
+  color: white;
+}
+
+.shop-promo-card h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.shop-promo-card p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .feature-card {
+    padding: 30px 20px;
+  }
+
+  .cta-card {
+    padding: 40px 20px;
+  }
+
+  .cta-card h2 {
+    font-size: 24px;
+  }
+}
+
+
+
+

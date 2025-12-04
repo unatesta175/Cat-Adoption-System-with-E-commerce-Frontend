@@ -1,0 +1,231 @@
+.cat-details-page {
+  min-height: calc(100vh - 60px);
+  background: #fafafa;
+}
+
+.cat-details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cat-image-section {
+  height: 100%;
+  min-height: 500px;
+}
+
+.cat-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cat-info-section {
+  padding: 40px;
+}
+
+.cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.cat-header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.adoption-fee {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.fee-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: white;
+}
+
+.fee-label {
+  margin: 5px 0 0 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.cat-status-badge.adopted {
+  background: #ffcdd2;
+  color: #c62828;
+}
+
+.cat-status-badge.available {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+
+.cat-status-badge {
+  background: var(--success);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cat-status-badge i {
+  margin-right: 6px;
+}
+
+.cat-breed {
+  color: var(--primary-purple);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.cat-breed i {
+  margin-right: 8px;
+}
+
+.cat-quick-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--purple-pale);
+  border-radius: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.info-item i {
+  font-size: 28px;
+  color: var(--primary-purple);
+}
+
+.info-item strong {
+  display: block;
+  font-size: 12px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-item span {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.cat-description {
+  margin-bottom: 30px;
+}
+
+.cat-description h3,
+.cat-traits-section h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.cat-description h3 i,
+.cat-traits-section h3 i {
+  color: var(--primary-purple);
+  margin-right: 8px;
+}
+
+.cat-description p {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.cat-traits-section {
+  margin-bottom: 30px;
+}
+
+.traits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.trait-item {
+  padding: 20px;
+  background: var(--purple-pale);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.trait-item i {
+  font-size: 32px;
+  color: var(--primary-purple);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.trait-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.trait-item span {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+@media (max-width: 968px) {
+  .cat-details-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-image-section {
+    min-height: 400px;
+  }
+
+  .cat-info-section {
+    padding: 30px 20px;
+  }
+
+  .cat-header h1 {
+    font-size: 32px;
+  }
+
+  .cat-quick-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .traits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
