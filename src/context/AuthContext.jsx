@@ -27,22 +27,48 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const response = await authAPI.login({ email, password });
     const userData = response.data;
+    const previousUser = localStorage.getItem('user');
+    const previousUserId = previousUser ? JSON.parse(previousUser).id : null;
+    
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
+    
+    // Only clear cart if a different user logs in (to prevent cart sharing)
+    if (previousUserId && previousUserId !== userData.id) {
+      localStorage.removeItem('cart');
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { ...userData, clearCart: true } }));
+    } else {
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { ...userData, clearCart: false } }));
+    }
     return userData;
   };
 
   const register = async (name, email, password) => {
     const response = await authAPI.register({ name, email, password });
     const userData = response.data;
+    const previousUser = localStorage.getItem('user');
+    const previousUserId = previousUser ? JSON.parse(previousUser).id : null;
+    
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
+    
+    // Only clear cart if a different user registers (to prevent cart sharing)
+    if (previousUserId && previousUserId !== userData.id) {
+      localStorage.removeItem('cart');
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { ...userData, clearCart: true } }));
+    } else {
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { ...userData, clearCart: false } }));
+    }
     return userData;
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
+    // Clear cart on logout
+    localStorage.removeItem('cart');
+    // Dispatch custom event to notify CartContext
+    window.dispatchEvent(new CustomEvent('userLogout'));
   };
 
   const updateUserPreferences = (preferences) => {

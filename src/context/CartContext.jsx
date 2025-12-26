@@ -12,11 +12,40 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
+    // Load cart from localStorage (guests can have cart too)
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  // Clear cart when user logs out
   useEffect(() => {
+    const handleUserLogout = () => {
+      setCart([]);
+      localStorage.removeItem('cart');
+    };
+
+    // Clear cart when a different user logs in (to prevent cart sharing between users)
+    const handleUserLogin = (event) => {
+      if (event.detail?.clearCart) {
+        setCart([]);
+        localStorage.removeItem('cart');
+      }
+    };
+
+    // Listen for custom events from AuthContext
+    window.addEventListener('userLogout', handleUserLogout);
+    window.addEventListener('userLogin', handleUserLogin);
+
+    // No need to check on mount - allow guest carts
+
+    return () => {
+      window.removeEventListener('userLogout', handleUserLogout);
+      window.removeEventListener('userLogin', handleUserLogin);
+    };
+  }, []); // Only run on mount
+
+  useEffect(() => {
+    // Save cart to localStorage (works for both guests and logged-in users)
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 

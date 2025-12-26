@@ -4,9 +4,31 @@
  * @returns {string} Full image URL
  */
 export const getUploadImageUrl = (imageName) => {
-  if (!imageName) return '';
+  // Return placeholder if no image name provided
+  if (!imageName) {
+    return 'https://via.placeholder.com/400x300/9b5de5/ffffff?text=No+Image';
+  }
+  
   const baseUrl = import.meta.env.VITE_API_URL || '';
-  return `${baseUrl}/uploads/${imageName}`;
+  
+  // In production, if VITE_API_URL is not set, log a warning
+  if (import.meta.env.PROD && !baseUrl) {
+    console.warn('⚠️ VITE_API_URL is not set! Images may not load correctly.');
+    console.warn('Set VITE_API_URL in Vercel environment variables to your Render backend URL');
+  }
+  
+  // Remove trailing slash from baseUrl if present
+  const cleanBaseUrl = baseUrl.replace(/\/$/, '');
+  
+  // Construct URL
+  const imageUrl = `${cleanBaseUrl}/uploads/${imageName}`;
+  
+  // Debug logging in development
+  if (import.meta.env.DEV) {
+    console.log('🖼️ Image URL:', imageUrl);
+  }
+  
+  return imageUrl;
 };
 
 /**
