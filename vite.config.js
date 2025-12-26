@@ -17,5 +17,17 @@ export default defineConfig({
         ws: false
       }
     }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          stripe: ['@stripe/stripe-js', '@stripe/react-stripe-js']
+        }
+      }
+    }
   }
 })

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import './PetCard.css';
 
 const PetCard = ({ cat }) => {
   const getImageUrl = (imageName) => {
-    return `/uploads/${imageName}`;
+    return getUploadImageUrl(imageName);
   };
 
   const getTraitIcon = (trait) => {

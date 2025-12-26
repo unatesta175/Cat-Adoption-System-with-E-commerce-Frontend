@@ -1,4 +1,15 @@
 /**
+ * Get upload image URL (works in both dev and production)
+ * @param {string} imageName - Image filename
+ * @returns {string} Full image URL
+ */
+export const getUploadImageUrl = (imageName) => {
+  if (!imageName) return '';
+  const baseUrl = import.meta.env.VITE_API_URL || '';
+  return `${baseUrl}/uploads/${imageName}`;
+};
+
+/**
  * Generate a random image URL based on an ID
  * Uses Picsum Photos (Lorem Picsum) for consistent random images
  * 
