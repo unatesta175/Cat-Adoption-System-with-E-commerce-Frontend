@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { adoptionsAPI } from '../../services/api';
+import { getUploadImageUrl } from '../../utils/imageUtils';
 import './AdminPages.css';
 
 const AdminAdoptions = () => {
@@ -101,7 +102,7 @@ const AdminAdoptions = () => {
                   <td>
                     <div className="table-cat-info">
                       <img 
-                        src={`/uploads/${adoption.catId?.image || 'default-cat.jpg'}`} 
+                        src={getUploadImageUrl(adoption.catId?.image || 'default-cat.jpg')} 
                         alt={adoption.catId?.name}
                         className="table-thumb"
                         onError={(e) => {

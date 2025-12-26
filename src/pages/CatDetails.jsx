@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { catsAPI, adoptionsAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import './CatDetails.css';
 
 const CatDetails = () => {
@@ -71,7 +72,7 @@ const CatDetails = () => {
         <div className="cat-details-content">
           <div className="cat-image-section">
             <img 
-              src={`/uploads/${cat.image}`} 
+              src={getUploadImageUrl(cat.image)} 
               alt={cat.name}
               onError={(e) => {
                 e.target.src = 'https://via.placeholder.com/600x400/9b5de5/ffffff?text=Cat+Image';

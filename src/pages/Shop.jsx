@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { productsAPI } from '../services/api';
 import { useCart } from '../context/CartContext';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import './Shop.css';
 
 const Shop = () => {
@@ -115,7 +116,7 @@ const Shop = () => {
               <div key={product._id} className="product-card">
                 <div className="product-image">
                   <img
-                    src={`/uploads/${product.image}`}
+                    src={getUploadImageUrl(product.image)}
                     alt={product.name}
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/300/9b5de5/ffffff?text=Product';

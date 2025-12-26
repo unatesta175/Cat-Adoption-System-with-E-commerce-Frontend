@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { catsAPI, adoptionsAPI } from '../services/api';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import FormInput from '../components/FormInput';
 import './AdoptionCheckout.css';
 
@@ -244,7 +245,7 @@ const AdoptionCheckout = () => {
               <h2>Adoption Summary</h2>
               <div className="cat-preview">
                 <img
-                  src={`/uploads/${cat.image}`}
+                  src={getUploadImageUrl(cat.image)}
                   alt={cat.name}
                   onError={(e) => {
                     e.target.src = 'https://via.placeholder.com/200/9b5de5/ffffff?text=Cat';

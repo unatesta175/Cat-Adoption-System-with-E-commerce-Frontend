@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { catsAPI } from '../../services/api';
+import { getUploadImageUrl } from '../../utils/imageUtils';
 import Modal from '../../components/Modal';
 import FormInput from '../../components/FormInput';
 import './AdminPages.css';
@@ -181,7 +182,7 @@ const AdminCats = () => {
                 <tr key={cat._id}>
                   <td>
                     <img 
-                      src={`/uploads/${cat.image}`} 
+                      src={getUploadImageUrl(cat.image)} 
                       alt={cat.name}
                       className="table-thumb"
                       onError={(e) => {

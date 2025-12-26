@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import './Cart.css';
 
 const Cart = () => {
@@ -50,7 +51,7 @@ const Cart = () => {
             {cart.map(item => (
               <div key={item._id} className="cart-item">
                 <img
-                  src={`/uploads/${item.image}`}
+                  src={getUploadImageUrl(item.image)}
                   alt={item.name}
                   onError={(e) => {
                     e.target.src = 'https://via.placeholder.com/100/9b5de5/ffffff?text=Product';

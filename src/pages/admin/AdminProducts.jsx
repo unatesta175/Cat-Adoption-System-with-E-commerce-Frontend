@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { productsAPI } from '../../services/api';
+import { getUploadImageUrl } from '../../utils/imageUtils';
 import Modal from '../../components/Modal';
 import FormInput from '../../components/FormInput';
 import './AdminPages.css';
@@ -161,7 +162,7 @@ const AdminProducts = () => {
                 <tr key={product._id}>
                   <td>
                     <img 
-                      src={`/uploads/${product.image}`} 
+                      src={getUploadImageUrl(product.image)} 
                       alt={product.name}
                       className="table-thumb"
                       onError={(e) => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { catsAPI, adoptionsAPI, ordersAPI, productsAPI } from '../services/api';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import Modal from '../components/Modal';
 import FormInput from '../components/FormInput';
 import './AdminDashboard.css';
@@ -349,7 +350,7 @@ const AdminDashboard = () => {
                   <tr key={cat._id}>
                     <td>
                       <img 
-                        src={`/uploads/${cat.image}`} 
+                        src={getUploadImageUrl(cat.image)} 
                         alt={cat.name}
                         className="cat-thumb"
                         onError={(e) => {
@@ -463,7 +464,7 @@ const AdminDashboard = () => {
                   <tr key={product._id}>
                     <td>
                       <img 
-                        src={`/uploads/${product.image}`} 
+                        src={getUploadImageUrl(product.image)} 
                         alt={product.name}
                         className="cat-thumb"
                         onError={(e) => {

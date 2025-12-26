@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ordersAPI } from '../services/api';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import './OrderHistory.css';
 
 const OrderHistory = () => {
@@ -106,7 +107,7 @@ const OrderHistory = () => {
                   {order.items.map((item, index) => (
                     <div key={index} className="order-item">
                       <img
-                        src={`/uploads/${item.product?.image || 'default-product.jpg'}`}
+                        src={getUploadImageUrl(item.product?.image || 'default-product.jpg')}
                         alt={item.name}
                         onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/80/9b5de5/ffffff?text=Product';

@@ -4,6 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useCart } from '../context/CartContext';
 import { ordersAPI } from '../services/api';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import FormInput from '../components/FormInput';
 import './Checkout.css';
 
@@ -229,7 +230,7 @@ const Checkout = () => {
                 {cart.map(item => (
                   <div key={item._id} className="summary-item">
                     <img
-                      src={`/uploads/${item.image}`}
+                      src={getUploadImageUrl(item.image)}
                       alt={item.name}
                       onError={(e) => {
                         e.target.src = 'https://via.placeholder.com/60/9b5de5/ffffff?text=Product';

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { recommendationsAPI, adoptionsAPI, authAPI } from '../services/api';
+import { getUploadImageUrl } from '../utils/imageUtils';
 import RecommendationList from '../components/RecommendationList';
 import Modal from '../components/Modal';
 import FormInput from '../components/FormInput';
@@ -156,7 +157,7 @@ const UserDashboard = () => {
                   <div key={request._id} className="request-item">
                     <div className="request-cat-info">
                       <img 
-                        src={`/uploads/${request.catId.image}`} 
+                        src={getUploadImageUrl(request.catId.image)} 
                         alt={request.catId.name}
                         onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/80/9b5de5/ffffff?text=Cat';
